@@ -12,8 +12,8 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 import django_heroku
+import dj_database_url
 
-# Activate Django-Heroku.
 django_heroku.settings(locals())
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -85,6 +85,8 @@ DATABASES = {
     }
 }
 
+DATABASES['default'].update(dj_database_url.config())
+
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -123,3 +125,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
