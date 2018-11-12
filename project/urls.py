@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+import video.views
 
 urlpatterns = [
+    url(r'^$', video.views.video, name='home'),
+    url(r'^(?P<vid_id>[0-9]+)/$', video.views.video_detail, name='details'),
     url(r'^admin/', admin.site.urls),
 ]
